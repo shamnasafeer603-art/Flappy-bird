@@ -24,7 +24,12 @@ jobs:
         java-version: '17'
 
     - name: Install Dependencies
-      run: npm install
+      run: |
+        npm install
+        npm install @capacitor/android
+
+    - name: Add Android Platform
+      run: npx cap add android
 
     - name: Sync Capacitor
       run: npx cap sync android
@@ -40,4 +45,3 @@ jobs:
       with:
         name: FlappyHenTroll
         path: android/app/build/outputs/apk/debug/app-debug.apk
-
